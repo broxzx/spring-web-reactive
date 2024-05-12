@@ -3,6 +3,8 @@ services:
   postgres-reactive:
     container_name: postgres-reactive
     image: postgres
+    volumes:
+      - postgres-user-volume:data/db
     ports:
       - "5448:5432"
     expose:
@@ -11,3 +13,6 @@ services:
       POSTGRES_DB: reactive-db
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
+
+volumes:
+  postgres-user-volume:

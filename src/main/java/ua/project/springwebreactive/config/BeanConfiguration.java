@@ -50,7 +50,7 @@ public class BeanConfiguration {
                 .authenticationManager(authenticationManager)
                 .securityContextRepository(securityContextRepository)
                 .authorizeExchange(authorizeExchange -> authorizeExchange
-                        .pathMatchers("/login").permitAll()
+                        .pathMatchers("/login", "/register").permitAll()
                         .pathMatchers("/controller/**").hasRole("ADMIN")
                         .anyExchange().authenticated())
                 .build();
@@ -61,9 +61,5 @@ public class BeanConfiguration {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationManager authenticationManager) {
-        return authenticationManager;
-    }
 }
 
