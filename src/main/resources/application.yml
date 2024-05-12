@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-web-reactive
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5448/reactive-db
+    username: root
+    password: root
+  flyway:
+    url: jdbc:postgresql://localhost:5448/reactive-db
+    user: root
+    password: root
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
