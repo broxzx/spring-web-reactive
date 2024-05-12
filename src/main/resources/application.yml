@@ -10,6 +10,10 @@ spring:
     user: root
     password: root
 
+jwt:
+  secret: 0fe6555df15108eecb61b1794c99a77db7186ee892d7e992a299a388224917c0
+  expiration: 30m
+
 logging:
   level:
     org:

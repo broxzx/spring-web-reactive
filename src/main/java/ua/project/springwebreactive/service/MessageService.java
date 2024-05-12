@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import ua.project.springwebreactive.domain.Message;
+import ua.project.springwebreactive.domain.MessageEntity;
 import ua.project.springwebreactive.repository.MessageRepository;
 
 @Service
@@ -13,11 +13,11 @@ public class MessageService {
 
     private final MessageRepository messageRepository;
 
-    public Flux<Message> getAllMessages() {
+    public Flux<MessageEntity> getAllMessages() {
         return messageRepository.findAll();
     }
 
-    public Mono<Message> saveMessage(Message message) {
-        return messageRepository.save(message);
+    public Mono<MessageEntity> saveMessage(MessageEntity messageEntity) {
+        return messageRepository.save(messageEntity);
     }
 }

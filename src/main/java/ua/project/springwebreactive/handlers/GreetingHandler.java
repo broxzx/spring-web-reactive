@@ -7,7 +7,7 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import ua.project.springwebreactive.domain.Message;
+import ua.project.springwebreactive.domain.MessageEntity;
 
 @Component
 public class GreetingHandler {
@@ -20,15 +20,15 @@ public class GreetingHandler {
                 .map(Long::valueOf)
                 .orElse(10L);
 
-        Flux<Message> data = Flux
+        Flux<MessageEntity> data = Flux
                 .just("Hello request!",
                         "more message",
                         "even more")
                 .skip(page)
                 .take(size)
-                .map(Message::new);
+                .map(MessageEntity::new);
 
         return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
-                .body(data, Message.class);
+                .body(data, MessageEntity.class);
     }
 }

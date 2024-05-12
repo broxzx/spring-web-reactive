@@ -8,13 +8,13 @@ import org.springframework.data.annotation.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Message {
+public class MessageEntity {
 
     @Id
     private Long id;
     private String data;
 
-    public Message(String data) {
+    public MessageEntity(String data) {
         this.data = data;
     }
 }
