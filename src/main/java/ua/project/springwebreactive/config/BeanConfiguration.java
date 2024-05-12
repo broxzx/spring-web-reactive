@@ -19,8 +19,10 @@ public class BeanConfiguration {
                 .andRoute(
                         RequestPredicates.GET("/"),
                         serverRequest -> {
+                            String username = serverRequest.queryParam("username")
+                                    .orElse("anonymous");
                             return ServerResponse.ok()
-                                    .render("index", Map.of());
+                                    .render("index", Map.of("username", username));
                         }
                 );
     }
